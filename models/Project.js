@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var ObjectId = mongoose.Schema.Types.ObjectId;
 var schema = new mongoose.Schema({
-    'id': ObjectId,
+    '_id': ObjectId,
     'name': String,
     'order': Number,
     'one': String,

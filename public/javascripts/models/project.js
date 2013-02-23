@@ -12,7 +12,9 @@ define([
             two: "two"
         },
 
-        initialize: function() {}
+        initialize: function() {
+        	if (!this.get("_id")) this.set("_id","");
+        }
 
     });
 });

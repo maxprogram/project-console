@@ -24,8 +24,10 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
+console.log(process.env.MONGODB_URI);
+
 app.configure('development', function(){
-    app.set('db-uri', 'mongodb://localhost/test');
+    app.set('db-uri', process.env.MONGODB_URI);
     app.use(express.errorHandler());
 });
 
