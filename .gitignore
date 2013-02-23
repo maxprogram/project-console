@@ -1,0 +1,13 @@
+.DS_Store
+ehthumbs.db
+Thumbs.db
+.project
+
+.sqlite
+.sqlite3
+.db
+
+node_modules
+.log
+npm-debug.log
+VERSION

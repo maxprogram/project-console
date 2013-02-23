@@ -1,0 +1,84 @@
+@import "mixins";
+
+* {
+  padding: 0;
+  margin: 0
+}
+
+body {
+  color: @textColor;
+  font-family: @baseFontFamily;
+  font-size: @baseFontSize;
+}
+
+img {
+  border: 0px;
+}
+
+a {
+  outline: none;
+  color: @linkColor;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: @linkColorHover;}
+  &:visited {color: @linkColor;}
+}
+
+/////////////////////////////
+
+@listWidth: 250px;
+
+#panel {
+    width: @listWidth + 2;
+    position: absolute;
+    left: 0; top: 0;
+    background-color: @white;
+    @switchWidth: 30px;
+    .switch {
+        position: absolute;
+        right: -@switchWidth;
+        width: @switchWidth;
+        cursor: pointer;
+        background-color: white;
+    }
+}
+
+ul.projects {
+    li {
+        list-style: none;
+        width: @listWidth;
+        border: 1px @grayLight solid;
+        .border-radius(4px);
+        &:hover {
+            background-color: @grayLighter;
+        }
+        &.active {
+            background-color: @grayLight;
+        }
+    }
+    li + li {
+        border-top-width: 0px;
+    }
+    li a {
+        display: block;
+        width: @listWidth - 20;
+        padding: 10px;
+        color: @grayDarker;
+        font-size: 18px;
+        line-height: 30px;
+        &:hover {text-decoration: none};
+    }
+}
+
+/////////////////////////////////
+
+#console {
+    width: 100%;
+    background-color: @blue;
+}
+
+iframe {
+    border: 0;
+    float: left;
+}

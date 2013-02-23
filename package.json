@@ -1,0 +1,22 @@
+{
+  "name": "project-console",
+  "version": "0.0.1",
+  "description": "Loads & displays an iframe console for projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec",
+    "start": "node index"
+  },
+  "repository": "",
+  "author": "Max Olson",
+  "license": "BSD",
+  "dependencies": {
+    "express": "3.0.0rc5",
+    "ejs": "*",
+    "less-middleware": "*",
+    "underscore": "*",
+    "step": "*",
+    "mongoose": "*",
+    "connect-mongodb": "*"
+  }
+}
