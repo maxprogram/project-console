@@ -4,12 +4,13 @@
  */
 
 var express = require('express'),
-    routes = require('./routes'),
+    GrandCentral = require('grand-central-express'),
     http = require('http'),
     path = require('path'),
     mongoose = require('mongoose');
 
-var app = express();
+var app = express(),
+    gce = new GrandCentral(app, __dirname);
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -24,23 +25,15 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
-console.log(process.env.MONGODB_URI);
-
 app.configure('development', function(){
-    app.set('db-uri', process.env.MONGODB_URI);
+    //app.set('db-uri', process.env.MONGODB_URI);
+    app.set('db-uri', 'mongodb://localhost/test');
     app.use(express.errorHandler());
 });
 
 var db = mongoose.connect(app.set('db-uri'));
-var projects = require('./controllers/project');
 
-app.get('/', routes.index);
-
-app.get( '/projects',       projects.index);
-app.get( '/projects/:id',   projects.show);
-app.post('/projects',       projects.create);
-app.put( '/projects/:id',   projects.update);
-app.del( '/projects/:id',   projects.destroy);
+gce.route();
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
