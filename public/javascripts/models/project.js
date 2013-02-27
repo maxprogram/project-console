@@ -5,6 +5,8 @@ define([
 ], function($, _, Backbone) {
     return Backbone.Model.extend({
 
+        idAttribute: "_id",
+
         defaults: {
             name: "Project Name",
             order: 1,
@@ -12,9 +14,7 @@ define([
             two: "two"
         },
 
-        initialize: function() {
-        	if (!this.get("_id")) this.set("_id","");
-        }
+        initialize: function() {}
 
     });
 });

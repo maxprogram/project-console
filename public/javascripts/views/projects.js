@@ -3,8 +3,9 @@ define([
     'underscore',
     'backbone',
     'collections/projects',
-    'views/project'
-], function($, _, Backbone, projects, ProjectView) {
+    'views/project',
+    'common'
+], function($, _, Backbone, projects, ProjectView, Common) {
     return Backbone.View.extend({
 
         el: $("#panel"),
@@ -19,7 +20,7 @@ define([
             this.$list = this.$('.projects');
             this.$console = $('#console');
 
-            this.listenTo(projects, 'add change reset', this.render);
+            this.listenTo(projects, 'add reset', this.render);
             projects.fetch();
         },
 
@@ -29,6 +30,7 @@ define([
             projects.each(function(p){
                 var projectView = new ProjectView({ model: p });
                 _this.$list.append(projectView.render().el);
+                if (Common.project == p.id) projectView.loadProject();
             });
         },
 
@@ -48,7 +50,7 @@ define([
                 one: "https://trello.com/board/project-map-wiki/500449a1ab3ad38b62021f2c",
                 two: "https://docs.google.com/document/d/1aFhbU0bExYV7PN26vi65_D2bRLXtw7ue6fSWFeQD-IY/edit",
                 three: "https://atlastory.hipchat.com/chat"
-            });
+            }, {wait: true});
         }
 
     });

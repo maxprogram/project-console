@@ -12,12 +12,13 @@ define([
         template: _.template(projectTemplate),
 
         events: {
-            'click a': 'loadProject'
+            'click a': 'loadProject',
+            'click .delete': 'clear'
         },
 
         initialize: function() {
-            //this.model.on('change', this.render);
-            this.model.on('destroy', this.unrender);
+            this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.model, 'destroy', this.remove);
         },
 
         render: function() {
@@ -37,11 +38,7 @@ define([
             $(window).resize();
         },
 
-        unrender: function() {
-            this.$el.remove();
-        },
-
-        remove: function() {
+        clear: function() {
             this.model.destroy();
         }
 

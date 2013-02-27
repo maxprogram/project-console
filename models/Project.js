@@ -1,8 +1,6 @@
 var mongoose = require('mongoose');
 
-var ObjectId = mongoose.Schema.Types.ObjectId;
 var schema = new mongoose.Schema({
-    '_id': ObjectId,
     'name': String,
     'order': Number,
     'one': String,

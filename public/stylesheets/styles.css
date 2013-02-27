@@ -141,7 +141,11 @@ a:visited {
   cursor: pointer;
   background-color: white;
 }
+ul.projects {
+  position: relative;
+}
 ul.projects li {
+  position: relative;
   list-style: none;
   width: 250px;
   border: 1px #999999 solid;
@@ -168,6 +172,17 @@ ul.projects li a {
 }
 ul.projects li a:hover {
   text-decoration: none;
+}
+ul.projects .delete {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  font-weight: bold;
+  color: #999999;
+  cursor: pointer;
+}
+ul.projects .delete:hover {
+  color: #333333;
 }
 #console {
   width: 100%;

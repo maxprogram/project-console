@@ -24,7 +24,9 @@ exports.create = function(req,res) {
         updated_at: new Date()
     };
 
-    Project.create(data, function(err,result){
+    var project = new Project(data);
+
+    project.save(function(err,result){
         if (err) log.error(err);
         res.json(result);
     });
@@ -59,9 +61,8 @@ exports.update = function(req,res) {
 exports.destroy = function(req,res) {
 
     var id = req.param('id');
-    Project.remove({ id: id }, function(err,result){
+    Project.findByIdAndRemove(id, function(err){
         if (err) throw err;
-        res.json(result);
     });
 
 };

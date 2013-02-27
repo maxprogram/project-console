@@ -26,8 +26,8 @@ define([
             $("#console").height(height).width(width);
             $("#panel").height(height);
             $("#frameOne").height(topRow).width(width);
-            $("#frameTwo").height(height-topRow).width(width*.65);
-            $("#frameThree").height(height-topRow).width(width*.35);
+            $("#frameTwo").height(height-topRow).width(width*0.65);
+            $("#frameThree").height(height-topRow).width(width*0.35);
         }
 
     });

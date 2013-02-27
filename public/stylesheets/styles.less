@@ -45,9 +45,12 @@ a {
 }
 
 ul.projects {
+    position: relative;
     li {
+        position: relative;
         list-style: none;
         width: @listWidth;
+        //height: 100px;
         border: 1px @grayLight solid;
         .border-radius(4px);
         &:hover {
@@ -68,6 +71,14 @@ ul.projects {
         font-size: 18px;
         line-height: 30px;
         &:hover {text-decoration: none};
+    }
+    .delete {
+        position: absolute;
+        top: 3px; right: 3px;
+        font-weight: bold;
+        color: @grayLight;
+        cursor: pointer;
+        &:hover { color: @grayDark; }
     }
 }
 
